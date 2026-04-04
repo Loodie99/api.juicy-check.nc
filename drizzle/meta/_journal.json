@@ -8,6 +8,20 @@
       "when": 1774775920867,
       "tag": "0000_complex_lethal_legion",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1774826806302,
+      "tag": "0001_naive_hobgoblin",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1774831365562,
+      "tag": "0002_huge_moira_mactaggert",
+      "breakpoints": true
     }
   ]
 }
