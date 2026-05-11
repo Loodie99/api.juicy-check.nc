@@ -37,7 +37,7 @@ RUN npm install --only=production
 COPY --from=builder /app/dist ./dist
 
 # Exposer le port de l'application
-EXPOSE 3000
+EXPOSE 5009
 
 # Commande de démarrage
 CMD ["node", "dist/main.js"
