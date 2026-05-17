@@ -8,7 +8,7 @@ services:
     container_name: juicycheck-api
     restart: always
     ports:
-      - "5010:5010"
+      - "5007:5007"
     env_file:
       - .env
     environment:
@@ -27,7 +27,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
-      - "5432:5432"
+      - "5008:5432"
     volumes:
       - juicycheck_pgdata:/var/lib/postgresql/data
     healthcheck:
