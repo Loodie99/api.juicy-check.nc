@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: elodietran-protgres
+    container_name: elodietran-prostgres
     restart: always
     ports:
       - "5007:5007"
