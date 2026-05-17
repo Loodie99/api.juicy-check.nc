@@ -1,25 +1,29 @@
-FROM node:20-alpine
+FROM node:22-alpine AS builder
 
 WORKDIR /app
 
-# Copier les fichiers de dépendances
 COPY package*.json ./
-
-# Installer toutes les dépendances (y compris devDependencies pour compiler)
-# Utiliser npm ci pour une installation deterministe
 RUN npm ci
 
-# Copier tout le code source
 COPY . .
-
-# Compiler le TypeScript vers JavaScript
 RUN npm run build
 
-# Supprimer les devDependencies apres le build
-RUN npm prune --production
+FROM node:22-alpine AS production
 
-# Exposer le port de l'application
-EXPOSE 5007
+WORKDIR /app
 
-# Commande de démarrage
-CMD ["node", "dist/main.js"]
+# Copy full node_modules from builder so drizzle-kit and its TS runtime (jiti) are available
+COPY --from=builder /app/node_modules ./node_modules
+COPY package*.json ./
+
+COPY --from=builder /app/dist ./dist
+
+# Copy files drizzle-kit push needs to introspect the schema
+COPY drizzle.config.ts ./
+COPY src/lib/db ./src/lib/db
+
+COPY entrypoint.sh ./
+RUN chmod +x entrypoint.sh
+
+
+CMD ["./entrypoint.sh"]
