@@ -6,7 +6,8 @@ WORKDIR /app
 COPY package*.json ./
 
 # Installer toutes les dépendances (y compris devDependencies pour compiler)
-RUN npm install
+# Utiliser npm ci pour une installation deterministe
+RUN npm ci
 
 # Copier tout le code source
 COPY . .
