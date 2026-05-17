@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: juicycheck-api
+    container_name: elodietran-protgres
     restart: always
     ports:
       - "5007:5007"
