@@ -27,7 +27,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: myapp_backend
+    container_name: elodietran_backend
     restart: always
     env_file:
       - .env
