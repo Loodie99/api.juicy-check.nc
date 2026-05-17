@@ -40,4 +40,4 @@ COPY --from=builder /app/dist ./dist
 EXPOSE 5007
 
 # Commande de démarrage
-CMD ["node", "dist/main.js"
+CMD ["node", "dist/main.js"]
