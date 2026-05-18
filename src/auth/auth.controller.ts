@@ -3,7 +3,7 @@ import { toNodeHandler } from 'better-auth/node';
 import { auth } from '../auth-config';
 import type { Request, Response } from 'express';
 
-@Controller('auth')
+@Controller('api/auth')
 export class AuthController {
 
   @All('*path')
