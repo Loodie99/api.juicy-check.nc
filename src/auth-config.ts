@@ -13,6 +13,6 @@ export const auth = betterAuth({
   },
   secret: process.env.BETTER_AUTH_SECRET,
   baseURL: process.env.BETTER_AUTH_URL,
-  basePath: '/auth',
+  basePath: 'api/auth',
   trustedOrigins: [process.env.FRONTEND_URL ?? 'http://15.235.206.148:5070'],
 });
